@@ -1,0 +1,47 @@
+{
+  "name": "<%= _.slugify(appname) %>",
+  "version": "0.0.0",
+  "description": "Yeoman generator",
+  "license": "MIT",
+  "main": "app/index.js",
+  "repository": "<%= githubUser %>/<%= _.slugify(appname) %>",
+  "author": {
+    "name": "<%= githubUser %>",
+    "email": "<%= githubUser %>@alibaba-inc.com"
+  },
+  "engines": {
+    "node": ">=0.10.0"
+  },
+  "scripts": {
+    "test": "mocha"
+  },
+  "files": [
+    "app"
+  ],
+  "keywords": [
+    "mtb",
+    "app"
+  ],
+  "dependencies": {
+    "grunt-contrib-copy": "~0.4.0",
+    "grunt-contrib-uglify": "~0.2.0",
+    "grunt-contrib-concat": "~0.3.0",
+    "grunt-contrib-less": "~0.8.2",
+    "grunt-contrib-watch": "~0.4.0",
+    "grunt-contrib-htmlone": "~0.0.1",
+    "grunt-contrib-imagemin": "~0.9.1"
+  },
+  "devDependencies": {
+    "mocha": "*",
+    "grunt-contrib-copy": "~0.4.0",
+    "grunt-contrib-uglify": "~0.2.0",
+    "grunt-contrib-concat": "~0.3.0",
+    "grunt-contrib-less": "~0.8.2",
+    "grunt-contrib-watch": "~0.4.0",
+    "grunt-contrib-htmlone": "~0.0.1",
+    "grunt-contrib-imagemin": "~0.9.1"
+  },
+  "peerDependencies": {
+    "yo": ">=1.0.0"
+  }
+}
