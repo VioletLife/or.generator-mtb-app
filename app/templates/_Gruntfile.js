@@ -91,10 +91,11 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-contrib-copy');
     grunt.loadNpmTasks('grunt-contrib-less');
     grunt.loadNpmTasks('grunt-contrib-watch');
-    grunt.loadNpmTasks('grunt-contrib-onereq');
+    grunt.loadNpmTasks('grunt-contrib-htmlone');
+    grunt.loadNpmTasks('grunt-contrib-imagemin');
 
     grunt.registerTask('default', ['less', 'uglify', 'copy', 'watch']);
-    grunt.registerTask('build', ['less', 'uglify', 'copy', 'onereq']);
+    grunt.registerTask('build', ['less', 'uglify', 'copy', 'htmlone']);
     
 
 }
