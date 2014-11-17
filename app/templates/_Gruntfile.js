@@ -67,10 +67,11 @@ module.exports = function(grunt) {
                 tasks: ['less']
             }
         },
-        onereq:  {
+        htmlone:  {
             options: {
-                scriptClass: ['onereq'],
-                minify: true
+                keyattr: 'data-htmlone',
+                cssminify: true,
+                jsminify: true
             },
             html: {
                 files: [
