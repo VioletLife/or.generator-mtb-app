@@ -1,89 +1,87 @@
-# generator-generator [![Build Status](https://secure.travis-ci.org/yeoman/generator-generator.svg?branch=master)](https://travis-ci.org/yeoman/generator-generator)
+## Useage
 
-> Yeoman generator for Yeoman generators  
-> Scaffolds out a new basic Yeoman generator with some sensible defaults.
-
-Maintainer: [Pascal Hartig](https://github.com/passy)
-
-![Yo dawg, I heard you like generators?](http://i.imgur.com/2gqiift.jpg)
-
-
-## Getting started
-
-- Install: `npm install -g generator-generator`
-- Run: `yo generator`
-
-If during generation you get an error like `API rate limit exceeded`, you need to log in to GitHub
-and [create a new API token](https://github.com/settings/tokens/new), then add:
-```bash
-export GITHUB_TOKEN='YOUR_NEW_TOKEN'
+```shell
+$ npm install -g yo
 ```
-to your `.bashrc`, `.zshrc`, `.profile` or another file that is run on shell initialization. In new terminal shells
-you shouldn't see this error anymore.
+```shell
+$ npm install -g generator-mtb-app
+```
+```shell
+$ yo mtb-app
+```
+接下来，就可以启动grunt进行愉快的编码了。
+```shell
+$ grunt
+```
+grunt 默认会启动 `watch` 模式，`less/`文件下的less文件会自动编译到`build/css/`文件下，`js/`文件夹下的js会自动压缩至`build/js/`目录下。
+
+```shell
+$ grunt build
+```
+`grunt build` 会自动将 带有 `data-htmlone` 属性并引用本地文件的 `<link>` 和 `<script>` 标签自动替换为 css 和js的内容。Combo到html一起。在`dest/`目录下。 详见项目 `amfe/or.htmlone`
 
 
-## Commands
+### Info
 
-* `yo generator` shows a wizard for generating a new generator
-* `yo generator:subgenerator NAME` generates a subgenerator with the name NAME
+```shell
+$ yo mtb-app
 
+     _-----_
+    |       |    .--------------------------.
+    |--(o)--|    |  Create your own Yeoman  |
+   `---------´   |      generator with      |
+    ( _´U`_ )    |       superpowers!       |
+    /___A___\    '--------------------------'
+     |  ~  |     
+   __'.___.'__   
+ ´   `  |° ´ Y ` 
 
-## What do you get?
+? Would you mind telling me your username on Gitlab? cenan.chr
+? What's the base name of your generator? app-test
+   create package.json
+   create Gruntfile.js
+   create .editorconfig
+   create .jshintrc
+   create .travis.yml
+   create README.md
+   create .gitattributes
+   create .gitignore
+   create index.html
+   create less/main.less
+   create js/main.js
+   create test/test-app.js
+>> npm install start ...
+```
+ 
+生成工程模板如下:
 
-Scaffolds out a complete project directory structure for you:
+```
+|- app-name/
+	|- images/
+	|- js/
+		- main.js
+	|- less/
+		- main.less
+	|- node_modules/
+	|- test/
+	- .editorconfig
+	- .gitattributes
+	- .gitignore
+	- .jshintrc
+	- .travis.yml
+	- .yo-rc.json
+	- Gruntfile.js
+	- index.html
+	- package.json
+	- README.md
+```
 
-    .
-    ├── app
-    │   ├── index.js
-    │   └── templates
-    │       ├── editorconfig
-    │       └── jshintrc
-    ├── .editorconfig
-    ├── .gitattributes
-    ├── .gitignore
-    ├── .jshintrc
-    ├── LICENSE
-    ├── package.json
-    ├── README.md
-    └── test
-        ├── test-creation.js
-        └── test-load.js
+** grunt build **
 
-
-## Changelog
-
-* 0.3.0
-    * Updated for generator 0.13.0.
-    * Added yo peer dependency.
-
-* 0.2.2
-    * Updated dependencies.
-
-* 0.2.1
-    * The name specified in the prompt is now used in `package.json`.
-    * `generator-generator` officially replaced the built-in generator that was
-      bundled with yo.
-
-* 0.2
-    * Added subgenerator for subgenerators
-    * Generated generator now generates package.json, component.json and
-      installs them by default.
-
-* 0.1.1
-    * Upgraded mocha to 1.9.0
-    * Include `.travis.yml`
-
-
-## Contributing
-
-See the [contribution docs](https://github.com/yeoman/yeoman/blob/master/contributing.md).
-
-When submitting an issue, please follow [the
-guidelines](https://github.com/yeoman/yeoman/blob/master/contributing.md#issue-submission).
-Especially important is to make sure Yeoman is up-to-date, and providing the
-command or commands that cause the issue.
-
-
-## License
-
-MIT © Pascal Hartig <phartig@rdrei.net> and other contributors
+```shell
+$ cd app-name
+$ grunt build
+```
+会自动生成 `build/` 和 `dest/` 目录。
+`build/` 目录 会把 `js/` 和 `less/` 目录下的 js 和 less文件分别编译压缩至 `build/js/` 和 `build/css/` 目录下
+`dest/` 目录下 会 自动把 根目录下的 `.html` 和 `.htm` 文件中引入的 带 `data-onereq` 的 css link 和 js 内容压缩并Combo至 `dest/` 目录下。
